@@ -1,44 +1,30 @@
-power = open('power.txt')
+power = open("2021day3.txt").read().split('\n')
 
-zeroes = 0
-ones = 0
-n = 0
 gamma = ''
 epsilon = ''
-ans = []
 
-def
+for i, j in enumerate(power):
+    
+    zeroes = 0
+    ones = 0
+    for j in power[i]:
+        if j == '0':
+            zeroes += 1
+            print(gamma)
+        elif j == '1':
+            ones += 1
+            print(epsilon)
+    gamma += str(max(zeroes, ones))
+    epsilon += str(min(zeroes, ones))
+    
 
-for i, j in enumerate(power, start = 1):
-    if j[n] == '0':
-        zeroes += 1
-        if n == 12:
-            break
-        else:
-            n += 1
-            continue
-    elif j[n] == '1':
-        ones += 1
-        if n == 12:
-            break
-        else:
-            n += 1
-            continue
 
-#         if j[n] == '0':
-#             zeroes += 1
-#         if j[n] == '1':
-#             ones += 1
-#     if zeroes > ones:
-#         gamma += '0'
-#         epsilon += '1'
-#     else:
-#         gamma += '1'
-#         epsilon += '0'
-#     zeroes = 0
-#     ones = 0
 
-# ans = int(gamma, 2) * int(epsilon, 2)
 
-# print(gamma)
+gammaDecimal = int(gamma, 2)
+epsilonDecimal = int(epsilon, 2)
+
+
+print(gammaDecimal * epsilonDecimal)
+
 
