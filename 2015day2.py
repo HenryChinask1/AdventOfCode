@@ -2,6 +2,7 @@ with open('boxSizes.txt') as f:
     boxDims = list(item.split('x') for item in f.read().split('\n'))
 
 total = 0
+total2 = 0
 
 
 for box in boxDims:
@@ -10,5 +11,8 @@ for box in boxDims:
     h = int(box[2])
     total += (l * w * 2) + (w * h * 2) + (l * h * 2)
     total += min((l*w), (w*h), (l*h))
+    total2 += min((l * 2 + w * 2), (w * 2 + h * 2), (l * 2 + h * 2))
+    total2 += l * w * h
 
 print(total)
+print(total2)
