@@ -1,18 +1,23 @@
 digitFile = str(open('digits.txt','r').read().strip())
-doubles = 0
+partOne = 0
+partTwo = 0
+digitFile2 = digitFile + digitFile
+n = int(len(digitFile) / 2)
 
-def nextI(move):
-    for i in move:
-        next(i)
-    return i
+# Part one.
+if digitFile[0] == digitFile[-1]:
+    partOne += int(digitFile[0])
 
-def addNumbers(digitFile):
-    for i in digitFile:
-        if i == nextI(digitFile):
-            doubles += int(i)
+for i in range(len(digitFile) - 1):
+    if int(digitFile[i]) == int(digitFile[i + 1]):
+        partOne += int(digitFile[i])
 
-addNumbers(digitFile)
 
-print(digitFile[15])
+# Part two.
+for i in range(len(digitFile)):
+    if int(digitFile2[i]) == int(digitFile2[i + n]):
+        partTwo += int(digitFile2[i])
 
-print(sum(doubles))
+
+print(partOne)
+print(partTwo)
