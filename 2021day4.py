@@ -1,3 +1,14 @@
+# Set up input.
+bingoCards = open('bingoCards.txt').read().split()
+bingoDraws = open('bingoDraws.txt').read().split(',')
+cardMap = []
+firstWinner = 0
+lastWinner = 0
+
+# Create the map.
+for i in range(0, len(bingoCards), 25):
+    cardMap.append(bingoCards[i:i + 25])
+
 def isWinner(board):
     for b in board:
         if ((b[0] == b[1] == b[2] == b[3] == b[4] == 'X') or # ROW 1 clear.
@@ -16,8 +27,7 @@ def isWinner(board):
                     ans += int(i)
             return ans
 
-
-
+# Update the list in-place (I think).
 def listReplace(lst, old, new):
     for idx, value in enumerate(lst):
         if isinstance(value, list):
@@ -27,14 +37,8 @@ def listReplace(lst, old, new):
                 lst[idx] = new
     return lst
 
-bingoCards = open('bingoCards.txt').read().split()
-bingoDraws = open('bingoDraws.txt').read().split(',')
-cardMap = []
-firstWinner = 0
 
-for i in range(0, len(bingoCards), 25):
-    cardMap.append(bingoCards[i:i + 25])
-
+# Main loop. Iterate draws and check for a winner after each draw.
 def getFirstWinner():    
     for i in bingoDraws:
         for idx, value in enumerate(cardMap):
@@ -45,6 +49,5 @@ def getFirstWinner():
                 if isWinner(cardMap):
                     firstWinner = isWinner(cardMap)
                     return firstWinner * int(i)
-                    
 
 print(f'Answer Part 1: {getFirstWinner()}')
