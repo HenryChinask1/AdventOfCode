@@ -11,8 +11,9 @@ for i in range(0, len(bingoCards), 25):
 
 # Check if any card has won after a draw.
 def isLastWinner(board):
+    boards = []
     for b in board:
-        if (((b[0] == b[1] == b[2] == b[3] == b[4] == 'X') or # ROW 1 clear.
+        if not (((b[0] == b[1] == b[2] == b[3] == b[4] == 'X') or # ROW 1 clear.
         (b[5] == b[6] == b[7] == b[8] == b[9] == 'X') or # ROW 2 clear.
         (b[10] == b[11] == b[12] == b[13] == b[14] == 'X') or # ROW 3 clear.
         (b[15] == b[16] == b[17] == b[18] == b[19] == 'X') or # ROW 4 clear.
@@ -22,8 +23,8 @@ def isLastWinner(board):
         (b[2] == b[7] == b[12] == b[17] == b[22] == 'X') or # COLUMN 3 clear.
         (b[3] == b[8] == b[13] == b[18] == b[23] == 'X') or # COLUMN 4 clear.
         (b[4] == b[9] == b[14] == b[19] == b[24] == 'X')) and len(board) > 1): # COLUMN 5 clear.
-            board.remove(b)
-    return board
+            boards.append(b)
+    return boards
 
 # Final card checker.
 def isWinner(board):
@@ -59,11 +60,8 @@ def getLastWinner(cardMap):
             if str(i) in value:
                 listReplace(value, str(i), 'X')
                 lastWinner = isLastWinner(cardMap)
-                #print(lastWinner, i)
-                #print(lastWinner)
                 if len(lastWinner) == 1:
                     listReplace(lastWinner, str(i), 'X')
-                    #print(lastWinner, i)
                     if isWinner(lastWinner) == True:
                         return calcAnswer(lastWinner, i)
 
@@ -76,7 +74,6 @@ def calcAnswer(finalCard, finalDraw):
     for i in finalCard[0]:
         if i != 'X':
             ans += int(i)
-    print(ans, finalDraw)
     return int(ans) * int(finalDraw)
 
 
