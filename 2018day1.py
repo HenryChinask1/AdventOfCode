@@ -1,35 +1,35 @@
 from collections import Counter
 
-freqChanges = open('calibration.txt')
+freqChanges = open('calibrationTEST.txt')
 
-ans = 0
+start = 0
 freqEnds = []
-ans2 = 574
-ans3 = 1148
-ans4 = 1722
-ans5 = 2296
 
-for i in freqChanges:
-        if i == ' ':
-            continue
-        if i[0] == '+':
-            ans += int(i[1:])
-            freqEnds.append(int(ans))
-        if i[0] == '-':
-            ans -= int(i[1:])
-            freqEnds.append(int(ans))
-
-for i in freqEnds:
-    while i no
-
+def changeLog(freqChanges, start, freqHits):
+    hits = start
+    freqEnds = freqHits
+    for i in freqChanges:
+            if i[0] == '+':
+                hits += int(i[1:])
+                freqEnds.append(int(hits))
+                if freqEnds.count(int(hits)) > 1:
+                     return hits
+            if i[0] == '-':
+                hits -= int(i[1:])
+                freqEnds.append(int(hits))
+                if freqEnds.count(int(hits)) > 1:
+                     return hits
+    changeLog(freqChanges, freqEnds[-1], freqEnds)
 
 
-set([i for i in freqEnds if freqEnds.count(i) > 1])
-print(freqEnds)
+# def checkForHits(freqEnds, ans):
+#     for i in freqEnds:
+#         if freqEnds.count(i) > 1:
+#             return i
+#     changeLog(freqChanges, start)
+#     checkForHits(freqEnds, ans)
+
+ans = changeLog(freqChanges, start, freqEnds)
 
 
 print(ans)
-print(ans2)
-print(ans3)
-print(ans4)
-print(ans5)
