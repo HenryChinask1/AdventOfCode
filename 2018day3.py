@@ -26,8 +26,17 @@ for line in quilt:
     for inch in line:
         if inch > 1:
             ans += 1
+
+for id, symbol, gridStart, quiltSize in squares:
+    start = startPos(gridStart)
+    size = patchSize(quiltSize)
+    total = 0
+    for col in range(start[1], start[1] + size[1]):
+        for row in range(start[0], start[0] + size[0]):
+            total += quilt[row][col]
+    if total == size[0] * size[1]:
+        print(f'Part 2: {id}')
             
         
 #print(quilt)
-print(ans)
-
+print(f'Part 1: {ans}')
