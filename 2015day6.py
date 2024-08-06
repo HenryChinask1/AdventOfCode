@@ -4,6 +4,7 @@ moves = open('2015day6.txt').read().split('\n')
 movesList = []
 
 for i in moves:
+    # Parse out the moves into a workable list of moves with the format ['dir', start 'x, y', end 'x, y']
     if i.startswith('turn on'):
         move = i.split(' ')
         movesList.append(['on', move[2], move[4]])
@@ -14,12 +15,8 @@ for i in moves:
         move = i.split(' ')
         movesList.append(['off', move[2], move[4]])
 
-def coordParse(move):
-    x1, y1 = i[1].split(',')
-    x2, y2 = i[2].split(',')
-
-
 for i in movesList:
+    # Run through each move and adjust the lights.
     if i[0] == 'on':
         x1, y1 = i[1].split(',')
         x2, y2 = i[2].split(',')
@@ -43,7 +40,7 @@ for i in movesList:
                 lightGrid[row][col] = 0
 
 ans = 0
-
+# Count the number of lights on.
 for i in lightGrid:
     for j in i:
         if j == 1:
