@@ -1,6 +1,6 @@
 from collections import Counter
 
-freqChanges = open('calibration.txt')
+freqChanges = open('Advent of Code Inputs/2018day1.txt')
 
 
 def loopFreq(freqChanges):
