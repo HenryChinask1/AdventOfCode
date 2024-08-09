@@ -1,4 +1,4 @@
-cleanLoc = open('sectionIDs.txt').read().replace('-',',').split('\n')
+cleanLoc = open('Advent of Code Inputs/2022day4.txt').read().replace('-',',').split('\n')
 
 elfLoc = [i.split(',') for i in cleanLoc]
 ans = 0
