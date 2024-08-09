@@ -1,4 +1,4 @@
-runs = open('dirs.txt').read().split('\n')
+runs = open('Advent of Code Inputs/2021day2.txt').read().split('\n')
 turns = []
 
 for i in runs:
