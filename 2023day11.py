@@ -1,4 +1,4 @@
-image = open('2023day11TEST.txt').read().split('\n')
+image = open('Advent of Code Inputs/2023day11.txt').read().split('\n')
 finalImage = []
 
 # Populate the image with rows including expansion of empty rows.
