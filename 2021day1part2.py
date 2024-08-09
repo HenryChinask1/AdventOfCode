@@ -1,4 +1,4 @@
-depth = open('depths.txt').read().split('\n')
+depth = open('Advent of Code Inputs/2021day1.txt').read().split('\n')
 
 threes = []
 
