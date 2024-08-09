@@ -1,5 +1,5 @@
 field = []
-for y, line in enumerate(open('2023day10.txt')):
+for y, line in enumerate(open('Advent of Code Inputs/2023day10.txt')):
     field.append(line)
     sLocation = line.find('S')
     if sLocation >= 0:
