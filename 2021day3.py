@@ -1,4 +1,4 @@
-power = open("2021day3.txt").read().split('\n')
+power = open("Advent of Code Inputs/2021day3.txt").read().split('\n')
 #power = ['00100', '11110', '10110', '10111', '10101', '01111', '00111', '11100', '10000', '11001', '00010', '01010']
 width = len(power[0])
 
