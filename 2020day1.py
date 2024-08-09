@@ -1,4 +1,4 @@
-values = open('2020Sum.txt').read().split('\n')
+values = open('Advent of Code Inputs/2020day1.txt').read().split('\n')
 values2 = values
 values3 = values
 
@@ -10,4 +10,4 @@ for i in values:
             if int(i) + int(n) + int(a) == 2020:
                 ans = int(i) * int(n) * int(a)
 
-print(ans)
+print(f'Part Two: {ans}')
