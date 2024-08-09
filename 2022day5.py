@@ -9,7 +9,7 @@ crateStack = [['Q', 'W', 'P', 'S', 'Z', 'R', 'H', 'D'],
               ['W', 'P' ,'V', 'M', 'B', 'H']]
 
 
-crateMoves = open('crateMoves.txt').read().split('\n')
+crateMoves = open('Advent of Code Inputs/2022day5.txt').read().split('\n')
 
 # numToMove = moveList[1], stackFrom = moveList[3], stackTo = moveList[5]
 moveList = [i.split(' ') for i in crateMoves]
