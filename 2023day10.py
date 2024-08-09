@@ -36,4 +36,4 @@ while True:
     steps += 1
     if x1 == x and y1 == y:
         print(steps // 2 + (1 if steps % 2 == 1 else 0))
-        quit()
+        break
