@@ -1,4 +1,4 @@
-file = open('2018day4TEST.txt').read().split('\n')
+file = open('Advent of Code Inputs/2018day4TEST.txt').read().split('\n')
 guardTimes = []
 
 for i in file:
