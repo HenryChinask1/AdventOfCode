@@ -1,6 +1,6 @@
 from collections import Counter
 
-freqChanges = open('calibrationTEST.txt')
+freqChanges = open('Advent of Code Inputs/2018day1.txt')
 
 start = 0
 freqEnds = []
