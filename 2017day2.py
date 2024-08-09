@@ -1,8 +1,8 @@
 import itertools
 
-spreadSheet = open('2017day2.txt').read().split('\n')
+spreadSheet = open('Advent of Code Inputs/2017day2.txt').read().split('\n')
 dataset = [i.split('\t') for i in spreadSheet]
-print(dataset)
+#print(dataset)
 partOne = 0
 partTwo = 0
 
@@ -23,5 +23,5 @@ for line in dataset:
     partTwo += rowCompare(line)
 
 
-print(partOne)
-print(partTwo)
+print(f'Part One: {partOne}')
+print(f'Part Two: {partTwo}')

@@ -1,4 +1,4 @@
-input = open('2016day3.txt').read().split('\n')
+input = open('Advent of Code Inputs/2016day3.txt').read().split('\n')
 #print(input)
 sides = []
 newTriangles = 0

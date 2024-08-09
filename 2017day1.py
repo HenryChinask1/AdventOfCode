@@ -1,4 +1,4 @@
-digitFile = str(open('digits.txt','r').read().strip())
+digitFile = str(open('Advent of Code Inputs/2017day1.txt').read().strip())
 partOne = 0
 partTwo = 0
 digitFile2 = digitFile + digitFile
@@ -19,5 +19,5 @@ for i in range(len(digitFile)):
         partTwo += int(digitFile2[i])
 
 
-print(partOne)
-print(partTwo)
+print(f'Part One: {partOne}')
+print(f'Part Two: {partTwo}')

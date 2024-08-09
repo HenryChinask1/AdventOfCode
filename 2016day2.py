@@ -1,4 +1,4 @@
-movement = open('2016day2.txt').read().split('\n')
+movement = open('Advent of Code Inputs/2016day2.txt').read().split('\n')
 
 grid = [['1', '2', '3'],
         ['4', '5', '6'],

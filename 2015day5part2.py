@@ -1,4 +1,4 @@
-testStrings = open('2015day5.txt').read().split('\n')
+testStrings = open('Advent of Code Inputs/2015day5.txt').read().split('\n')
 
 firstTest = [] # Strings that contain a repeat with a buffer.
 secondTest = [] # Strings that contain a pair of two letters without overlap.

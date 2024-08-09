@@ -1,6 +1,6 @@
 import sys
 
-movement = open('directions.txt').read().strip().split(', ')
+movement = open('Advent of Code Inputs/2016day1.txt').read().strip().split(', ')
 
 
 factors = ((0, 1),  # N

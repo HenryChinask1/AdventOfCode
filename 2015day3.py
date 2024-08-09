@@ -1,5 +1,5 @@
 
-santaMoves = open('santamoves.txt').read().split()
+santaMoves = open('Advent of Code Inputs/2015day3.txt').read().split()
 
 #print(santaMoves)
 

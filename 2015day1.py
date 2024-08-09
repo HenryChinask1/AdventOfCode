@@ -1,4 +1,4 @@
-floorLocator = open('floormove.txt').read().strip()
+floorLocator = open('Advent of Code Inputs/2015day1.txt').read().strip()
 floor = 0
 step = 0
 

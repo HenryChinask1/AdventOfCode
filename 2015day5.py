@@ -1,4 +1,4 @@
-testStrings = open('2015day5.txt').read().split('\n')
+testStrings = open('Advent of Code Inputs/2015day5.txt').read().split('\n')
 
 firstTest = [] # Strings that do not contain 'ab', 'cd', 'pq', or 'xy'.
 secondTest = [] # Strings that contain three total vowels.

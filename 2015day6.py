@@ -1,6 +1,6 @@
 lightGrid = [[0 for i in range(1000)] for i in range(1000)] #One million light grid with 1000x1000 rows.
 
-moves = open('2015day6.txt').read().split('\n')
+moves = open('Advent of Code Inputs/2015day6.txt').read().split('\n')
 movesList = []
 
 for i in moves:

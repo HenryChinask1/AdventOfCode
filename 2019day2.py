@@ -1,4 +1,4 @@
-opcodes = open('2019day2.txt').read().split(',')
+opcodes = open('Advent of Code Inputs/2019day2.txt').read().split(',')
 opcodes[1] = '12'
 opcodes[2] = '2'
 
