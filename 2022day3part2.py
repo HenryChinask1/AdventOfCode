@@ -11,7 +11,7 @@ for i in s2:
     alpha[i] = values
     values += 1
 
-rucks = open('sax.txt').read().split('\n')
+rucks = open('Advent of Code Inputs/2022day3.txt').read().split('\n')
 
 rucktrios = [rucks[x:x+3] for x in range(0, len(rucks), 3)]
 #print(rucktrios)

@@ -3,7 +3,7 @@ import string
 from itertools import count
 
 count = 1
-rucks = open('sax.txt').read().split('\n')
+rucks = open('Advent of Code Inputs/2022day3.txt').read().split('\n')
 alpha = {}
 ans = 0.0
 
