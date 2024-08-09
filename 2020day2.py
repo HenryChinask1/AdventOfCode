@@ -1,4 +1,4 @@
-passwords = open('password.txt').read().split('\n')
+passwords = open('Advent of Code Inputs/2020day2.txt').read().split('\n')
 password1 = [] # The test character is i[1[0]], test string is i[2]
 
 okPasswords = 0
