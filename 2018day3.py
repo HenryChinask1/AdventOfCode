@@ -1,4 +1,4 @@
-file = open('2018day3.txt').read().split('\n')
+file = open('Advent of Code Inputs/2018day3.txt').read().split('\n')
 quilt = [[0] * 1000 for _ in range(1000)] # The empty grid.
 squares = [] # The list of claims.
 ans = 0

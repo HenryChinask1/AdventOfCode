@@ -5,7 +5,7 @@ threes = 0
 commonBoxes = []
 
 
-boxes = open('2018day2.txt').read().split()
+boxes = open('Advent of Code Inputs/2018day2.txt').read().split()
 #print(boxes)
 
 for box in boxes:
