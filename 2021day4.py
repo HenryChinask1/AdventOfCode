@@ -1,6 +1,6 @@
 # Set up input.
-bingoCards = open('bingoCards.txt').read().split()
-bingoDraws = open('bingoDraws.txt').read().split(',')
+bingoCards = open('Advent of Code Inputs/2021day4b.txt').read().split()
+bingoDraws = open('Advent of Code Inputs/2021day4a.txt').read().split(',')
 cardMap = []
 firstWinner = 0
 lastWinner = 0
