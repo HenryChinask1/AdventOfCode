@@ -1,4 +1,4 @@
-calDoc = open('calibrations.txt').read().split('\n')
+calDoc = open('Advent of Code Inputs/2023day1.txt').read().split('\n')
 
 numList = {'1': 'one',
            '2': 'two',
