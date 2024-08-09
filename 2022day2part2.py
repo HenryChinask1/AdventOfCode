@@ -1,4 +1,4 @@
-rounds = open('rps.txt').read().split('\n')
+rounds = open('Advent of Code Inputs/2022day2.txt').read().split('\n')
 
 #Rock Paper Scissors
 import random, sys
