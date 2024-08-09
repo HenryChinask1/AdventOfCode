@@ -1,4 +1,4 @@
-C = open('calories.txt').read().split('\n\n')
+C = open('Advent of Code Inputs/2022day1.txt').read().split('\n\n')
 
 calories = []
 
