@@ -17,7 +17,7 @@ for i in range(width):
             ones += 1
     bitMax.append([zeroes, ones])
 
-for i in range(bitMax):
+#for i in range(bitMax):
     
 for idx, byte in enumerate(power):
     power1 = power.copy()
