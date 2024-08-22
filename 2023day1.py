@@ -1,16 +1,5 @@
 calDoc = open('Advent of Code Inputs/2023day1.txt').read().split('\n')
 
-numList = {'1': 'one',
-           '2': 'two',
-           '3': 'three',
-           '4': 'four',
-           '5': 'five',
-           '6': 'six',
-           '7': 'seven',
-           '8': 'eight',
-           '9': 'nine',
-           '0': 'zero'}
-
 calNums = []
 
 for line in calDoc:
