@@ -6,7 +6,6 @@ newTriangles = 0
 for i in input:
     sides.append(i.split())
 
-
 newSides1 = [i[0][:] for i in sides]
 newSides2 = [i[1][:] for i in sides]
 newSides3 = [i[2][:] for i in sides]
