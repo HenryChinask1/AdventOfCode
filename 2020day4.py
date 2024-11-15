@@ -1,8 +1,15 @@
-passports = open('Advent of Code Inputs/2020day4TEST.txt').read().split('\n\n')
+passports = open('Advent of Code Inputs/2020day4.txt').read().split('\n\n')
 
-valids = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid']
+ans = 0
 
-for i in passports:
-    for j in valids:
-        if j in i:
-            
+def checkValid(passport):
+    valids = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid']
+    for valid in valids:
+        if valid not in passport:
+            return 0
+    return 1
+
+for passport in passports:
+    ans += checkValid(passport)      
+
+print(ans)
