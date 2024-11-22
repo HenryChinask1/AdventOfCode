@@ -1,4 +1,3 @@
-
 p = open('AdventOfCode/Advent of Code Inputs/2021day6TEST.txt').read().split(',')
 fish = [int(i) for i in p]
 
