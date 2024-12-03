@@ -6,7 +6,6 @@ for i in p:
     leftList.append(i[0:5])
     rightList.append(i[-5:])
 
-print(leftList, rightList)
 rightList.sort()
 leftList.sort()
 ans = []
@@ -16,4 +15,4 @@ while i < len(leftList):
     ans.append(abs(int(leftList[i]) - int(rightList[i])))
     i += 1
 
-print(sum(ans))
+print(f'2024 Day 1 Part 1: {sum(ans)}')

@@ -24,4 +24,4 @@ for line in puzzle:
     else:
         ans += lineCheck(line, inc=False)
 
-print(ans)
+print(f'2024 Day 2 Part 1: {ans}')

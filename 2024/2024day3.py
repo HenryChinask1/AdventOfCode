@@ -11,4 +11,4 @@ mult = [] # multiply values.
 for i in nums:
     mult.append(int(i[0]) * int(i[1]))
 
-print(sum(mult))    
+print(f'2024 Day 3 Part 1: {sum(mult)}')    

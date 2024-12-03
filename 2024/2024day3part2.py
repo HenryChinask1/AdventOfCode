@@ -21,4 +21,4 @@ ans = [] # multiply instructions.
 for i in mult:
     ans.append(int(i[0]) * int(i[1]))
 
-print(sum(ans))
+print(f'2024 Day 3 Part 2: {sum(ans)}')

@@ -8,9 +8,7 @@ for i in p:
     leftList.append(i[0:5])
     rightList.append(i[-5:])
 
-print(leftList,rightList)
-
 for i in leftList:
     ans.append(int(i) * rightList.count(str(i)))
 
-print(sum(ans))
+print(f'2024 Day 1 Part 2: {sum(ans)}')

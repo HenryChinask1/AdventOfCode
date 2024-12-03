@@ -33,4 +33,4 @@ for line in puzzle:
     elif listAdj(line) == 1:
         ans += 1
 
-print(ans)
+print(f'2024 Day 2 Part 2: {ans}')
