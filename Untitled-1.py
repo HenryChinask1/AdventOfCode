@@ -1,4 +1,3 @@
-rows = 3
-cols = 3
+line = [1 ,2 ,5, 4]
 
-print([[0 for i in range(cols)] for i in range(rows)])
+print(line == sorted(line))
