@@ -64,8 +64,24 @@ def partOne():
     print(f'Part One: {ans}')
 
 def partTwo():
+    finds = [[['M', 'M'], ['S', 'S']],
+             [['M', 'S'], ['M', 'S']],
+             [['S', 'S'], ['M', 'M']],
+             [['S', 'M'], ['S', 'M']]]
     ans = 0
-
+    found = []
+    for i in range(len(p)):
+        for j in range(len(p[0])):
+            if p[i][j] == 'A':
+                # Check Corners.
+                if (i < (len(p) - 1) and j < (len(p[0]) - 1)) and (i > 0 and j > 0):
+                    if p[i + 1][j + 1] == 'M' or p[i + 1][j + 1] == 'S':
+                        found.append([p[i - 1][j - 1], p[i - 1][j + 1]])
+                        found.append([p[i + 1][j - 1], p[i + 1][j + 1]])
+                        if found in finds:
+                            ans += 1
+                        found = []
+    print(f'Part Two: {ans}')
 
 partOne()
 partTwo()
