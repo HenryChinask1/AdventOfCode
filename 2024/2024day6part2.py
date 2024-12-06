@@ -1,12 +1,25 @@
+from copy import deepcopy
+
 p = open('AdventOfCode/Advent of Code Inputs/2024day6.txt').read().split('\n')
 puzzle = []
 
 for i in p:
     puzzle.append([j for j in i])
 
-
+def direction(puzzle):
+    for i in range(len(puzzle)):
+        for j in range(len(puzzle[0])):
+            if puzzle[i][j] in '^v><':
+                return puzzle[i][j]
+def starting(puzzle):
+    for i in range(len(puzzle)):
+        for j in range(len(puzzle[0])):
+            if puzzle[i][j] in '^v><':
+                return (i, j)
 ans = 0
-start = (0, 0)
+start = starting(puzzle)
+dir = direction(puzzle)
+puzzle2 = deepcopy(puzzle)
 
 def walkGuard(grid, start, dir):
     pos = start
@@ -15,16 +28,10 @@ def walkGuard(grid, start, dir):
     walking = True
     # Add 'X' until you reach a '#'.
     while walking:
-        grid[pos[0]][pos[1]] = 'X'
         prevPos = pos
         pos = tuple(map(lambda i, j: i + j, pos, dirs[dir]))
-        if (pos[0] > (len(grid) - 1)) or (pos[1] > (len(grid[0]) - 1)):
-            ans = 0
-            for row in grid:
-                for item in row:
-                    if item == 'X':
-                        ans += 1
-            return ans    
+        if (pos[0] > (len(grid) - 1)) or (pos[1] > (len(grid[0]) - 1)) or (pos[0] < 0) or (pos[1] < 0):
+            return False
         if grid[pos[0]][pos[1]] == '#':
             walking = False
             if dir == '>':
@@ -40,28 +47,18 @@ def walkGuard(grid, start, dir):
                 dir = '>'
                 walkGuard(grid, prevPos, dir)
         if (pos[0] > (len(grid) - 1)) or (pos[1] > (len(grid[0]) - 1)):
-            ans = 0
-            for row in grid:
-                for item in row:
-                    if item == 'X':
-                        ans += 1
-            return ans
-    ans = 0
-    for row in grid:
-        for item in row:
-            if item == 'X':
-                ans += 1
-    return ans
+            return False
 
 
-# Find the starting point.
 for i in range(len(puzzle)):
     for j in range(len(puzzle[0])):
-        if puzzle[i][j] in '^v><':
-            start = (i, j)
-            dir = puzzle[i][j]
-            puzzle[i][j] ='X'
-            # Start the path.
-            ans += walkGuard(puzzle, start, dir)
+        puzzle2[i][j] = '#'
+        try:
+            walkGuard(puzzle2, start, dir)
+            puzzle2 = deepcopy(puzzle)
+        except RecursionError:
+            puzzle2 = deepcopy(puzzle)
+            ans += 1
 
-print(f'Part One: {ans}')
+
+print(f'Part Two: {ans}')
