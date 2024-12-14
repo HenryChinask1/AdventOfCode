@@ -39,7 +39,7 @@ def partOne():
                 v = floodFill(puzzle, (x, y))
                 crops.append(v)
                 visited |= v
-    print(sum(len(v) * perimeter(v) for v in crops))
+    print(f'Part One: {sum(len(v) * perimeter(v) for v in crops)}')
 
 def partTwo():
     pass
