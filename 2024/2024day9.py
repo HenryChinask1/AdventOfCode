@@ -13,7 +13,7 @@ def partOne():
             elif idx % 2 != 0:
                 for _ in range(num):
                     disk.append('.')
-        return disk, len(disk)
+        return disk
     
     def moveFiles(fileBlock):
         moved = []
@@ -23,29 +23,26 @@ def partOne():
             elif val == '.':
                 while fileBlock[-1] == '.':
                     fileBlock.pop()
-                moved.append(fileBlock[-1])
+                if moved[-1] != fileBlock[-1]:
+                    moved.append(fileBlock[-1])
                 fileBlock.pop()
         return moved
     
-    def updateChecksum(compressedDisk, diskSize):
-        for _ in range(diskSize - len(compressedDisk)):
-            compressedDisk.append('.')
+    def updateChecksum(compressedDisk):
         checkSum = 0
         for idx, val in enumerate(compressedDisk):
-            if val == '.':
-                checkSum += idx
-            else:
                 checkSum += idx * val
         return checkSum
     
-    fileBlock, diskSize = parseBlocks(puzzle)
+    fileBlock = parseBlocks(puzzle)
     compressedDisk = moveFiles(fileBlock)
-    ans = updateChecksum(compressedDisk, diskSize)
+    ans = updateChecksum(compressedDisk)
 
     print(f'Part One: {ans}')
-    #print(f'6415449222092 is not the answer')
-    #print(f'6415449267161 is not the answer')
-    #print(f'6418726729910 is not the answer')
+    print(f'6415449222092 is not the answer')
+    print(f'6415449267161 is not the answer')
+    print(f'6418726729910 is not the answer')
+    print(f'2648643289022 is not the answer')
 
 
 def partTwo():
