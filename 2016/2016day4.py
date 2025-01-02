@@ -47,7 +47,55 @@ def partOne():
     print(f'Part One: {rooms}') 
 
 def partTwo():
-    pass
+
+    rooms = []
+    
+    def checkRoom(name):
+        checkCount = {(ord(i) - ord('a')):0 for i in name if i not in '-'}
+        for i in name:
+            if (ord(i) - ord('a')) in checkCount:
+                checkCount[(ord(i) - ord('a'))] += 1
+        return checkCount
+    
+    def validRoom(checkCount, sectorID, checkSum):
+        checkSum = [(ord(i) - ord('a')) for i in checkSum if i not in '[]']
+        # Check count is letter(int): count(int).
+        if checkSum[0] not in checkCount:
+            return
+        currTotal = checkCount[checkSum[0]]
+        ID = int(sectorID)
+        for i in range(1, len(checkSum)):
+            if checkSum[i] not in checkCount:
+                return
+            elif checkCount[checkSum[i]] > currTotal:
+                return
+            elif checkCount[checkSum[i]] == currTotal:
+                if checkSum[i - 1] > checkSum[i]:
+                    return
+            currTotal = checkCount[checkSum[i]]
+        
+        return sectorID
+    
+    def decrypt(phrase, rotation):
+        newPhrase = []
+        for i in phrase:
+            if i == '-':
+                newPhrase.append(' ')
+            else:
+                newPhrase.append(chr(((ord(i) - ord('a') + rotation) % 26) + 97))
+        return ''.join(i for i in newPhrase)
+
+    for i in puzzle:
+        checkCount = checkRoom(i[0])
+        rooms.append(validRoom(checkCount, i[1], i[2]))
+
+    for i in puzzle:
+        if i[1] in rooms:
+            room = decrypt(i[0], int(i[1]))
+            print(room)
+            if 'object' in room:
+                print(f'Part Two: {i[1]}')
+                break
 
 partOne()
 partTwo()
