@@ -1,16 +1,7 @@
+# Fuel Counter-Upper
 p = open('AdventOfCode/Advent of Code Inputs/2019day1.txt').read().split('\n')
 
-def partOne():
-    ans = 0
-
-    def calc(line):
-        return (int(line) // 3) - 2
-    
-    for i in p:
-        ans += calc(i)
-    print(f"Part One: {ans}")
-
-def partTwo():
+def fuelCounterUpper(p):
     ans = 0
     fuels = []
 
@@ -28,10 +19,10 @@ def partTwo():
 
     for i in p:
         ans += calc(i)
+    print(f'Part One: {ans}')
     
     for i in fuels:
         ans += fuelCalc(i)
     print(f"Part Two: {ans}")
 
-partOne()
-partTwo()
+fuelCounterUpper(p)
