@@ -68,5 +68,4 @@ def codeString():
                 params = [(opcodes[i] // 100) % 10, (opcodes[i] //1000) % 10, (opcodes[i] // 10000) % 10]
                 i = opcodeFive(opcodes, i, params)
 
-
 codeString()
