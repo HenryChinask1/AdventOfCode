@@ -22,17 +22,56 @@ def opcodeThree(opcode, i, param, inputVal):
     return opcode
 
 def opcodeFive(opcode, i, param):
-    pass
+    if param[0] == 0:
+        if opcode[opcode[i + 1]] != 0:
+            return opcode[opcode[i + 1]]
+        else:
+            return i + 1
+    else:
+        if opcode[i + 1] != 0:
+            return opcode[i + 1]
+        else:
+            return i + 1
 
-def opcodeSix():
-    pass
+def opcodeSix(opcode, i, param):
+    if param[0] == 0:
+        if opcode[opcode[i + 1]] != 0:
+            return opcode[opcode[i + 2]]
+        else:
+            return i + 1
+    else:
+        if opcode[i + 1] != 0:
+            return opcode[i + 2]
+        else:
+            return i + 1
 
-def opcodeSeven():
-    pass
+def opcodeSeven(opcode, i, param):
+    if param[0] == 0:
+        if opcode[opcode[i + 1]] < opcode[opcode[i + 2]]:
+            opcode[opcode[i + 3]] = 1
+        else:
+            opcode[opcode[i + 3]] = 0
+        return opcode
+    else:
+        if opcode[i + 1] < opcode[i + 2]:
+            opcode[i + 3] = 1
+        else:
+            opcode[i + 3] = 0
+        return opcode
 
-def opcodeEight():
-    pass
-
+def opcodeEight(opcode, i, param):
+    if param[0] == 0:
+        if opcode[opcode[i + 1]] == opcode[opcode[i + 2]]:
+            opcode[opcode[i + 3]] = 1
+        else:
+            opcode[opcode[i + 3]] = 0
+        return opcode
+    else:
+        if opcode[i + 1] == opcode[i + 2]:
+            opcode[i + 3] = 1
+        else:
+            opcode[i + 3] = 0
+        return opcode
 
 def codeString():
     opcodes = [int(i) for i in open('AdventOfCode/Advent of Code Inputs/2019day5.txt').read().split(',')]
@@ -67,5 +106,15 @@ def codeString():
             case '05':
                 params = [(opcodes[i] // 100) % 10, (opcodes[i] //1000) % 10, (opcodes[i] // 10000) % 10]
                 i = opcodeFive(opcodes, i, params)
-
+            case '06':
+                params = [(opcodes[i] // 100) % 10, (opcodes[i] //1000) % 10, (opcodes[i] // 10000) % 10]
+                i = opcodeSix(opcodes, i, params)
+            case '07':
+                params = [(opcodes[i] // 100) % 10, (opcodes[i] //1000) % 10, (opcodes[i] // 10000) % 10]
+                opcodes = opcodeSeven(opcodes, i, params)
+                i += 4
+            case '08':
+                params = [(opcodes[i] // 100) % 10, (opcodes[i] //1000) % 10, (opcodes[i] // 10000) % 10]
+                opcodes = opcodeEight(opcodes, i, params)
+                i += 4
 codeString()
