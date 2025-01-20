@@ -1,21 +1,22 @@
 puzzle = 347991
 
-grid = [[0 for i in range(puzzle)] for i in range(puzzle)]
-dirs = [[0, 1], [-1, 0], [0, 1], [1, 0]]
-step = 1
-direction = 0
-rStart = int(puzzle / 2)
-cStart = int(puzzle / 2)
-startPos = (0, 0)
+def partOne():
+    grid = {}
+    i = 1
+    dx, dy = 0, -1
+    row = col = 0
+    
+    while i <= puzzle:
+        grid[i] = [row, col]
+        if row == col or (row < 0 and row == -col) or (row > 0 and row == 1 - col):
+            dx, dy = -dy, dx
+        row, col = row + dx, col + dy
+        i += 1
 
-for i in range(1, puzzle):
-    for _ in range(3):
-        for _ in range(step):
-            if(rStart >= 0 and rStart < puzzle and cStart >= 0 and cStart < puzzle):
-                grid[rStart][cStart] = i
-                rStart += dirs[direction][0]
-                cStart += dirs[direction][1]
-        direction = (direction + 1) % 4
-    step += 1
+    print(f'Part One: {abs(grid[puzzle][0]) + abs(grid[puzzle][1])}')
 
-print(grid)
+def partTwo():
+    pass
+
+partOne()
+partTwo()
