@@ -1,35 +1,31 @@
-from collections import Counter
+p = open('AdventOfCode/Advent of Code Inputs/2018day1.txt').read().split('\n')
 
-freqChanges = open('Advent of Code Inputs/2018day1.txt')
+def partOne():
+    freq = 0
+    for i in p:
+        if i[0] == '+':
+            freq += int(i[1:])
+        elif i[0] == '-':
+            freq -= int(i[1:])
+    print(f'Part One: {freq}')
 
-start = 0
-freqEnds = []
-
-def changeLog(freqChanges, start, freqHits):
-    hits = start
-    freqEnds = freqHits
-    for i in freqChanges:
-            if i[0] == '+':
-                hits += int(i[1:])
-                freqEnds.append(int(hits))
-                if freqEnds.count(int(hits)) > 1:
-                     return hits
-            if i[0] == '-':
-                hits -= int(i[1:])
-                freqEnds.append(int(hits))
-                if freqEnds.count(int(hits)) > 1:
-                     return hits
-    changeLog(freqChanges, freqEnds[-1], freqEnds)
-
-
-# def checkForHits(freqEnds, ans):
-#     for i in freqEnds:
-#         if freqEnds.count(i) > 1:
-#             return i
-#     changeLog(freqChanges, start)
-#     checkForHits(freqEnds, ans)
-
-ans = changeLog(freqChanges, start, freqEnds)
-
-
-print(ans)
+def partTwo():
+    frequencies = {0: 1}
+    freq = 0
+    i = 0
+    while True:
+        if p[i][0] == '+':
+            freq += int(p[i][1:])
+        elif p[i][0] == '-':
+            freq -= int(p[i][1:])
+        if freq in frequencies:
+            print(f'Part Two: {freq}')
+            break
+        else:
+            frequencies[freq] = 1
+        if i == len(p) - 1:
+            i = 0
+        else:
+            i += 1
+partOne()
+partTwo()
