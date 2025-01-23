@@ -71,7 +71,7 @@ def partOne():
 def partTwo():
 
     def parseInput():
-        p = open('AdventOfCode/Advent of Code Inputs/2019day3TEST1.txt').read().split('\n')
+        p = open('AdventOfCode/Advent of Code Inputs/2019day3.txt').read().split('\n')
         puzzle = []
         for i in p:
             puzzle.append([i.split(',')])
@@ -93,42 +93,35 @@ def partTwo():
                 end = currPos[1] - int(i[1])
                 while currPos[1] > end:
                     currPos = [currPos[0], currPos[1] - 1]
-                    points.append([currPos[0], currPos[1], i[1]])
+                    points.append([currPos[0], currPos[1]])
             elif currDir == 'R':
                 end = currPos[1] + int(i[1])
                 while currPos[1] < end:
                     currPos = [currPos[0], currPos[1] + 1]
-                    points.append([currPos[0], currPos[1], i[1]])
+                    points.append([currPos[0], currPos[1]])
             elif currDir == 'U':
                 end = currPos[0] - int(i[1])
                 while currPos[0] > end:
                     currPos = [currPos[0] - 1, currPos[1]]
-                    points.append([currPos[0], currPos[1], i[1]])
+                    points.append([currPos[0], currPos[1]])
             elif currDir == 'D':
                 end = currPos[0] + int(i[1])
                 while currPos[0] < end:
                     currPos = [currPos[0] + 1, currPos[1]]
-                    points.append([currPos[0], currPos[1], i[1]])
+                    points.append([currPos[0], currPos[1]])
         return points
     
     first, second = parseInput()
     gridOne = addWire(first)
     gridTwo = addWire(second)
-    crosses = list(filter(lambda x: x in gridOne, gridTwo))
 
-    res = 0
+    res = []
 
-    for i in gridOne:
-        res += 1
-        if i in crosses:
-            break
-    for i in gridTwo:
-        res += 1
-        if i in crosses:
-            break
+    for i in range(len(gridOne)):
+        if gridOne[i] in gridTwo:
+            res.append(len(gridOne[0:i + 1]) + len(gridTwo[0:gridTwo.index(gridOne[i]) + 1]))
 
-    print(f'Part Two: {res}')
-
+    print(f'Part Two: {min(res)}')
 
 partOne()
 partTwo()
