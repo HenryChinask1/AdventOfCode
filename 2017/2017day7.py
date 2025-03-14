@@ -1,29 +1,24 @@
-from typing import Optional
-from dataclasses import dataclass
+import re
 
-p = open('AdventOfCode/Advent of Code Inputs/2017day7TEST.txt').read().split('\n')
+p = open('AdventOfCode/Advent of Code Inputs/2017day7.txt').read().split('\n')
 
-@dataclass
-class Node:
-    def __init__(self, node):
-        self.node = node
-        self.children = []
+# Parse input.
+tower = {}
+for i in p:
+    lines = re.findall(r'[a-z]+|[0-9]+', i)
+    name, wgt = lines[0], lines[1]
+    children = []
+    if len(lines) > 2:
+        for i in lines[2:]:
+            children.append(i)
+    tower[name] = {'weight': int(wgt), 'children': children}
 
-class TreeNode:
-    def __init__(self, Node):
-        self.data = Node
-        self.children = []
+# Add all the children to a set.
+allChildren = set()
+for program in tower.values():
+    allChildren.update(program['children'])
 
-    def addChild(self, child):
-        self.children.append(child)
-    
-    def removeChild(self, child):
-        self.children.remove(child)
-
-root = TreeNode('a')
-child = TreeNode('b')
-child2 = 'c'
-root.addChild(child)
-child.addChild(child2)
-
-print(root.children)
+# Check which program in the tower is at the bottom.
+for program in tower:
+    if program not in allChildren:
+        print(program)
