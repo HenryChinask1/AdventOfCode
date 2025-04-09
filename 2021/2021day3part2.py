@@ -1,46 +1,56 @@
-#power = open("2021day3.txt").read().split('\n')
-power = ['00100', '11110', '10110', '10111', '10101', '01111', '00111', '11100', '10000', '11001', '00010', '01010']
+power = open("AdventOfCode/Advent of Code Inputs/2021day3.txt").read().split('\n')
 width = len(power[0])
 
-bitMax = []
+bitMax = power[:]
 o2Gen = 0
 co2Scrub = 0
 
-for i in range(width):
-    
-    zeroes = 0
+def checkMax(bits:list, pos:int) -> list:
+    # Check for the max bits in the curr pos and return a list of values that comply.
     ones = 0
-    for j in range(len(power)):
-        if power[j][i] == '0':
-            zeroes += 1
-        elif power[j][i] == '1':
+    zeros = 0
+    goodBits = []
+    for i in bits:
+        if i[pos] == '1':
             ones += 1
-    bitMax.append([zeroes, ones])
+        elif i[pos] == '0':
+            zeros += 1
+    bit = '1' if max(ones, zeros) == ones else '0'
 
-#for i in range(bitMax):
-    
-for idx, byte in enumerate(power):
-    power1 = power.copy()
-    while len(power1) > 1:
-        i = idx
-        if byte[i] != max(zeroes, ones):
-            power1.pop(i)
-            if len(power1) == 1:
-                o2Gen = int(power1[0], 2)
-            else:
-                i += 1
+    for i in bits:
+        if i[pos] == bit:
+            goodBits.append(i)
+    return goodBits
 
-for idx, byte in enumerate(power):
-    power2 = power.copy()
-    while len(power2) > 1:
-        if byte[idx] != min(zeroes, ones):
-            power2.pop(idx)
-            if len(power2) == 1:
-                co2Scrub = int(power2[0], 2)
+def checkMin(bits:list, pos:int) -> list:
+    # Check for the min bits in the curr pos and return a list of values that comply.
+    ones = 0
+    zeros = 0
+    goodBits = []
+    for i in bits:
+        if i[pos] == '1':
+            ones += 1
+        elif i[pos] == '0':
+            zeros += 1
+    bit = '0' if min(ones, zeros) == zeros else '1'
 
+    for i in bits:
+        if i[pos] == bit:
+            goodBits.append(i)
+    return goodBits
 
+for i in range(width):
+    bitMax = checkMax(bitMax, i)
+    if len(bitMax) == 1:
+        break
+o2Gen = int(bitMax[0], 2)
 
-#Part two.
-print(bitMax)
+bitMax = power[:]
 
+for i in range(width):
+    bitMax = checkMin(bitMax, i)
+    if len(bitMax) == 1:
+        break
+co2Scrub = int(bitMax[0], 2)
 
+print(f'Part Two: {o2Gen * co2Scrub}')
