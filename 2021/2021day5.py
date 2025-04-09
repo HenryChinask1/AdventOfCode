@@ -1,6 +1,6 @@
 import re
 
-lineSegs = open('Advent of Code Inputs/lineSegsTEST.txt').read().split('\n')
+lineSegs = open('AdventOfCode/Advent of Code Inputs/2021day5.txt').read().split('\n')
 coords = []
 overlaps = 0
 fullOverlaps = 0
