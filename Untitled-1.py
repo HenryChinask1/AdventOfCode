@@ -1,19 +1,20 @@
-from collections import Counter
+class Solution:
+    def clearStars(self, s: str) -> str:
+        cnt = [[] for _ in range(26)]
+        arr = list(s)
+        for i, c in enumerate(arr):
+            #print(cnt)
+            if c != '*':
+                cnt[ord(c) - ord('a')].append(i)
+            else:
+                #print(arr)
+                for j in range(26):
+                    #print(arr,'\n',cnt)
+                    if cnt[j]:
+                        print(cnt[j])
+                        arr[cnt[j].pop()] = '*'
+                        break
+        return ''.join(c for c in arr if c != '*')
 
-def countGood(nums: list[int], k: int) -> int:
-    n = len(nums)
-    same, right = 0, -1
-    cnt = Counter()
-    ans = 0
-    for left in range(n):
-        while same < k and right + 1 < n:
-            right += 1
-            same += cnt[nums[right]]
-            cnt[nums[right]] += 1
-        if same >= k:
-            ans += n - right
-            cnt[nums[left]] -= 1
-            same -= cnt[nums[left]]
-    return ans
-
-print(countGood([3,1,4,3,2,2,4], 2))
+s = Solution()
+s.clearStars('aa*ba*')
