@@ -1,5 +1,5 @@
 def partOne():
-    p = open('AdventOfCode/Advent of Code Inputs/2024day1.txt').read().split('\n')
+    p = open('Advent of Code Inputs/2024day1.txt').read().split('\n')
     leftList = []
     rightList = []
 

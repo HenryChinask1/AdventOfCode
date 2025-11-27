@@ -1,4 +1,4 @@
-with open('AdventOfCode/Advent of Code Inputs/2015day2.txt') as f:
+with open('Advent of Code Inputs/2015day2.txt') as f:
     boxDims = list(item.split('x') for item in f.read().split('\n'))
 
 def partOne():

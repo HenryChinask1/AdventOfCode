@@ -1,4 +1,4 @@
-floorLocator = open('AdventOfCode/Advent of Code Inputs/2015day1.txt').read().strip()
+floorLocator = open('Advent of Code Inputs/2015day1.txt').read().strip()
 
 def climb(floorFinder, checkStep=None):
     floor = 0

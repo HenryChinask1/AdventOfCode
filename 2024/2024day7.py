@@ -1,5 +1,5 @@
 import itertools
-p = open('AdventOfCode/Advent of Code Inputs/2024day7.txt').read().split('\n')
+p = open('Advent of Code Inputs/2024day7.txt').read().split('\n')
 puzzle = {}
 for i in p:
     puzzle[int(i[0:i.index(':')])] = i[i.index(':') + 2:]

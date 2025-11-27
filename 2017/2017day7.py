@@ -1,6 +1,6 @@
 import re
 
-p = open('AdventOfCode/Advent of Code Inputs/2017day7.txt').read().split('\n')
+p = open('Advent of Code Inputs/2017day7.txt').read().split('\n')
 
 # Parse input.
 tower = {}

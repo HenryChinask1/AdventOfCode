@@ -1,4 +1,4 @@
-p = open('AdventOfCode/Advent of Code Inputs/2020day7TEST.txt').read().split('\n')
+p = open('Advent of Code Inputs/2020day7TEST.txt').read().split('\n')
 p = [item.replace('contain', ':') for item in p]
 puzzle = []
 ans = 0

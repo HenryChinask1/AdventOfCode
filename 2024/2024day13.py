@@ -1,6 +1,6 @@
 import re
 
-p = open('AdventOfCode/Advent of Code Inputs/2024day13TEST.txt').read().split('\n\n')
+p = open('Advent of Code Inputs/2024day13TEST.txt').read().split('\n\n')
 puzzle = []
 
 for i in p:

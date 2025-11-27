@@ -1,4 +1,4 @@
-power = open("AdventOfCode/Advent of Code Inputs/2021day3TEST.txt").read().split('\n')
+power = open("Advent of Code Inputs/2021day3TEST.txt").read().split('\n')
 
 def partOne():
     gamma = ''

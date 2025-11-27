@@ -1,4 +1,4 @@
-p = open('AdventOfCode/Advent of Code Inputs/2024day10TEST.txt').read().split('\n')
+p = open('Advent of Code Inputs/2024day10TEST.txt').read().split('\n')
 puzzle = [] # A grid.
 
 for i in p:

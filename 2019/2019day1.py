@@ -1,5 +1,5 @@
 # Fuel Counter-Upper
-p = open('AdventOfCode/Advent of Code Inputs/2019day1.txt').read().split('\n')
+p = open('Advent of Code Inputs/2019day1.txt').read().split('\n')
 
 def fuelCounterUpper(p):
     ans = 0

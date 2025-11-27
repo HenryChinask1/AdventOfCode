@@ -1,4 +1,4 @@
-p = open("AdventOfCode/Advent of Code Inputs/2020day5.txt").read().split()
+p = open("Advent of Code Inputs/2020day5.txt").read().split()
 seatId = []
 
 

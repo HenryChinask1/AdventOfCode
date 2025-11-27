@@ -1,4 +1,4 @@
-p = open('AdventOfCode/Advent of Code Inputs/2023day3.txt').read().split()
+p = open('Advent of Code Inputs/2023day3.txt').read().split()
 
 # Parse the input.
 puzzle = []

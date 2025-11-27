@@ -1,7 +1,7 @@
 # Intcode Computer
 
 def intComputer(noun, verb):
-    opcodes = [int(i) for i in open('AdventOfCode/Advent of Code Inputs/2019day2.txt').read().split(',')]
+    opcodes = [int(i) for i in open('Advent of Code Inputs/2019day2.txt').read().split(',')]
     opcodes[1], opcodes[2] = noun, verb
 
     def opcodeOne(opcode, i):

@@ -3,7 +3,7 @@
 def partOne():
 
     def parseInput():
-        p = open('AdventOfCode/Advent of Code Inputs/2019day3.txt').read().split('\n')
+        p = open('Advent of Code Inputs/2019day3.txt').read().split('\n')
         puzzle = []
         for i in p:
             puzzle.append([i.split(',')])

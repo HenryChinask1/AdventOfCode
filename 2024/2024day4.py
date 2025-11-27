@@ -1,4 +1,4 @@
-p = open('AdventOfCode/Advent of Code Inputs/2024day4.txt').read().split('\n')
+p = open('Advent of Code Inputs/2024day4.txt').read().split('\n')
 
 def partOne():
     ans = 0

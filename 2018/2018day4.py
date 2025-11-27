@@ -1,6 +1,6 @@
 import re
 
-p = open('AdventOfCode/Advent of Code Inputs/2018day4TEST.txt').read().split('\n')
+p = open('Advent of Code Inputs/2018day4TEST.txt').read().split('\n')
 
 guardTimes = []
 guardNum = 0

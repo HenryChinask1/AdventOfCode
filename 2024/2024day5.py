@@ -1,6 +1,6 @@
 from copy import deepcopy
 
-p = open('AdventOfCode/Advent of Code Inputs/2024day5TEST.txt').read().split('\n')
+p = open('Advent of Code Inputs/2024day5TEST.txt').read().split('\n')
 pagePair = []
 convert = []
 books = []

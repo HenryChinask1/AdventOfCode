@@ -1,5 +1,5 @@
 def partOne():
-    data = open('AdventOfCode/Advent of Code Inputs/2025day1.txt').read().split('\n')
+    data = open('Advent of Code Inputs/2025day1.txt').read().split('\n')
     
     pass
 

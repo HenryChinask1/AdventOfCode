@@ -1,4 +1,4 @@
-input = open('AdventOfCode/Advent of Code Inputs/2015day7TEST.txt').read().split('\n')
+input = open('Advent of Code Inputs/2015day7TEST.txt').read().split('\n')
 
 circuits = []
 

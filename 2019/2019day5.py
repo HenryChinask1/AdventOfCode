@@ -74,7 +74,7 @@ def opcodeEight(opcode, i, param):
         return opcode
 
 def codeString():
-    opcodes = [int(i) for i in open('AdventOfCode/Advent of Code Inputs/2019day5.txt').read().split(',')]
+    opcodes = [int(i) for i in open('Advent of Code Inputs/2019day5.txt').read().split(',')]
     #opcodes[1], opcodes[2] = 12, 2
     
     i = 0
