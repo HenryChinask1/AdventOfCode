@@ -79,9 +79,9 @@ def partTwo():
             # TODO: Recursively fixMids until it passes and add the middle page to ans.
     
     for book in incorrects:
-        print(f'The book: {book}')
+        #print(f'The book: {book}')
         ans += fixMids(book, befores, afters)
-        print(ans)
+        #print(ans)
     print(f'Part Two: {ans}')
 
 partOne()

@@ -29,7 +29,7 @@ def partOne():
     return stones
 
 def partTwo():
-    p = open('AdventOfCode/Advent of Code Inputs/2024day11.txt').read().split(' ')
+    p = open('Advent of Code Inputs/2024day11.txt').read().split(' ')
     puzzleDict = {}
     for i in p:
         puzzleDict[int(i)] = p.count(str(i))
