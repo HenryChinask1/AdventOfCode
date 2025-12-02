@@ -1,0 +1,2 @@
+import re
+print(f'Part One: {sum([sum([(i if re.match(r'\b(\w+)\1\b', str(i)) else 0) for i in range(int(part[0]), int(part[1]) + 1)]) for part in [re.findall(r'\d+', i) for i in open('Advent of Code Inputs/2025day2.txt').read().split(',')]])}\nPart Two: {sum([sum([(i if re.match(r'\b(\w+)\1+\b', str(i)) else 0) for i in range(int(part[0]), int(part[1]) + 1)]) for part in [re.findall(r'\d+', i) for i in open('Advent of Code Inputs/2025day2.txt').read().split(',')]])}')
