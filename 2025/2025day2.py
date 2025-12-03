@@ -1,7 +1,7 @@
 import re
 
 def partOne():
-    data = open('Advent of Code Inputs/2025day2TEST.txt').read().split(',')
+    data = open('Advent of Code Inputs/2025day2.txt').read().split(',')
     ranges = []
     ans = 0
 
