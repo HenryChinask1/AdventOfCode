@@ -28,7 +28,6 @@ def partTwo():
     data = open('Advent of Code Inputs/2025day5.txt').read().split('\n')
     ranges = []
     ans = 0
-    fresh = []
 
     for i in data:
         if '-' in i:
@@ -37,26 +36,12 @@ def partTwo():
         else:
             break
     ranges.sort()
-    prevRange = 0
-    #print(ranges)
+
     for i in range(len(ranges) - 1):
-        print(ans)
-        if ranges[i][1] > ranges[i + 1][0]:
-            ans += ranges[i + 1][0] - ranges[i][0]
-            fresh.append([ranges[i + 1][0], ranges[i][0], i, ans])
-            prevRange = ranges[i + 1][0] + 1
-        elif ranges[i][0] < prevRange:
-            ans += ranges[i][1] - prevRange
-            fresh.append([ranges[i][1], prevRange, i, ans])
-        elif ranges[i][1] == ranges[i + 1][0]:
-            ans += ranges[i][1] - ranges[i][0]
-        else:
-            ans += ranges[i][1] + 1 - ranges[i][0]
-            fresh.append([ranges[i][1] + 1, ranges[i][0], i, ans])
+        ans += ranges[i][1] - ranges[i][0] + 1
+        if ranges[i][1] - ranges[i + 1][0] > 0:
+            ans -= ranges[i][1] - ranges[i + 1][0] + 1
     ans += ranges[-1][1] - ranges[-1][0] + 1
-    fresh.append([ranges[-1][1], ranges[-1][0], i, ans])
-    #print(fresh)
-    print(ans)
     print(f'Part Two: {ans}')
 
 partOne()
