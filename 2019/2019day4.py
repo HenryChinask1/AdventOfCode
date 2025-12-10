@@ -59,4 +59,3 @@ if __name__ == '__main__':
     x.checkValidsTwo()
     print(f'Part One: {x.validsOne}')
     print(f'Part Two: {x.validsTwo}')
-    print(len(x.checked))
