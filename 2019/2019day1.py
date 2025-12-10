@@ -1,6 +1,4 @@
 # Fuel Counter-Upper
-p = open('Advent of Code Inputs/2019day1.txt').read().split('\n')
-
 def fuelCounterUpper(p):
     ans = 0
     fuels = []
@@ -25,4 +23,7 @@ def fuelCounterUpper(p):
         ans += fuelCalc(i)
     print(f"Part Two: {ans}")
 
-fuelCounterUpper(p)
+    return ans
+
+if __name__ == '__main__':
+    fuelCounterUpper(open('Advent of Code Inputs/2019day1.txt').read().split('\n'))
