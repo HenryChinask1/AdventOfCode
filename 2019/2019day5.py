@@ -1,120 +1,111 @@
 # Intcode Computer
 
-def opcodeOne(opcode, i, modes):
-    firstVal = opcode[i + 1] if modes[0] == 0 else i + 1
-    secondVal = opcode[i + 2] if modes[1] == 0 else i + 2
-    thirdVal = opcode[i + 3] if modes[2] == 0 else i + 3
-    opcode[thirdVal] = opcode[firstVal] + opcode[secondVal]
-    return opcode
+class IntComputer:
+
+    def __init__(self, opcodeInt):
+
+        self.opcodeInt = opcodeInt
+        self.i = 0
+        self.mode1 = 0
+        self.mode2 = 0
+        self.mode3 = 0
+
+    def opcodeOne(self): 
+        pos1 = self.i + 1 if self.mode1 else self.opcodeInt[self.i + 1]
+        pos2 = self.i + 2 if self.mode2 else self.opcodeInt[self.i + 2]
+        pos3 = self.i + 3 if self.mode3 else self.opcodeInt[self.i + 3]
+        self.opcodeInt[pos3] = self.opcodeInt[pos1] + self.opcodeInt[pos2]
+        self.i += 4
     
-def opcodeTwo(opcode, i, modes):
-    firstVal = opcode[i + 1] if modes[0] == 0 else i + 1
-    secondVal = opcode[i + 2] if modes[1] == 0 else i + 2
-    thirdVal = opcode[i + 3] if modes[2] == 0 else i + 3
-    opcode[thirdVal] = opcode[firstVal] * opcode[secondVal]
-    return opcode
-
-def opcodeThree(opcode, i, param, inputVal):
-    if param == 0:
-        opcode[opcode[i + 1]] = inputVal
-    else:
-        opcode[i + 1] = inputVal
-    return opcode
-
-def opcodeFive(opcode, i, param):
-    if param[0] == 0:
-        if opcode[opcode[i + 1]] != 0:
-            return opcode[opcode[i + 1]]
-        else:
-            return i + 1
-    else:
-        if opcode[i + 1] != 0:
-            return opcode[i + 1]
-        else:
-            return i + 1
-
-def opcodeSix(opcode, i, param):
-    if param[0] == 0:
-        if opcode[opcode[i + 1]] != 0:
-            return opcode[opcode[i + 2]]
-        else:
-            return i + 1
-    else:
-        if opcode[i + 1] != 0:
-            return opcode[i + 2]
-        else:
-            return i + 1
-
-def opcodeSeven(opcode, i, param):
-    if param[0] == 0:
-        if opcode[opcode[i + 1]] < opcode[opcode[i + 2]]:
-            opcode[opcode[i + 3]] = 1
-        else:
-            opcode[opcode[i + 3]] = 0
-        return opcode
-    else:
-        if opcode[i + 1] < opcode[i + 2]:
-            opcode[i + 3] = 1
-        else:
-            opcode[i + 3] = 0
-        return opcode
-
-def opcodeEight(opcode, i, param):
-    if param[0] == 0:
-        if opcode[opcode[i + 1]] == opcode[opcode[i + 2]]:
-            opcode[opcode[i + 3]] = 1
-        else:
-            opcode[opcode[i + 3]] = 0
-        return opcode
-    else:
-        if opcode[i + 1] == opcode[i + 2]:
-            opcode[i + 3] = 1
-        else:
-            opcode[i + 3] = 0
-        return opcode
-
-def codeString():
-    opcodes = [int(i) for i in open('Advent of Code Inputs/2019day5.txt').read().split(',')]
-    #opcodes[1], opcodes[2] = 12, 2
+    def opcodeTwo(self):
+        pos1 = self.i + 1 if self.mode1 else self.opcodeInt[self.i + 1]
+        pos2 = self.i + 2 if self.mode2 else self.opcodeInt[self.i + 2]
+        pos3 = self.i + 3 if self.mode3 else self.opcodeInt[self.i + 3]
+        self.opcodeInt[pos3] = self.opcodeInt[pos1] * self.opcodeInt[pos2]
+        self.i += 4
     
-    i = 0
-    while True:
-        x= str(opcodes[i]).zfill(5)
-        match x[-2:]:
-            case '99':
-                return opcodes[0]
-            case '01':
-                params = [(opcodes[i] // 100) % 10, (opcodes[i] //1000) % 10, (opcodes[i] // 10000) % 10]
-                opcodes = opcodeOne(opcodes, i, params)
-                i += 4
-            case '02':
-                params = [(opcodes[i] // 100) % 10, (opcodes[i] //1000) % 10, (opcodes[i] // 10000) % 10]
-                opcodes = opcodeTwo(opcodes, i, params)
-                i += 4
-            case '03':
-                inputVal = int(input('Enter input value: '))
-                param = (opcodes[i] // 100) % 10
-                opcodes = opcodeThree(opcodes, i, param, inputVal)
-                i += 2
-            case '04':
-                param = (opcodes[i] // 100) % 10
-                if param == 0:
-                    print(opcodes[opcodes[i + 1]])
-                else:
-                    print(opcodes[i + 1])
-                i += 2
-            case '05':
-                params = [(opcodes[i] // 100) % 10, (opcodes[i] //1000) % 10, (opcodes[i] // 10000) % 10]
-                i = opcodeFive(opcodes, i, params)
-            case '06':
-                params = [(opcodes[i] // 100) % 10, (opcodes[i] //1000) % 10, (opcodes[i] // 10000) % 10]
-                i = opcodeSix(opcodes, i, params)
-            case '07':
-                params = [(opcodes[i] // 100) % 10, (opcodes[i] //1000) % 10, (opcodes[i] // 10000) % 10]
-                opcodes = opcodeSeven(opcodes, i, params)
-                i += 4
-            case '08':
-                params = [(opcodes[i] // 100) % 10, (opcodes[i] //1000) % 10, (opcodes[i] // 10000) % 10]
-                opcodes = opcodeEight(opcodes, i, params)
-                i += 4
-codeString()
+    def opcodeThree(self):
+        inputVal = input('Enter input Value (1 for Part One and 5 for Part Two): ')
+        storeTo = self.i + 1 if self.mode1 else self.opcodeInt[self.i + 1]
+        self.opcodeInt[storeTo] = int(inputVal)
+        self.i += 2
+        
+    def opcodeFour(self):
+        outputVal = self.i + 1 if self.mode1 else self.opcodeInt[self.i + 1]
+        print(self.opcodeInt[outputVal])
+        self.i += 2
+
+    def opcodeFive(self):
+        paramVal = self.i + 1 if self.mode1 else self.opcodeInt[self.i + 1]
+        if self.opcodeInt[paramVal]:
+            newPointer = self.i + 2 if self.mode2 else self.opcodeInt[self.i + 2]
+            self.i = self.opcodeInt[newPointer]
+        else:
+            self.i += 3
+
+    def opcodeSix(self):
+        paramVal = self.i + 1 if self.mode1 else self.opcodeInt[self.i + 1]
+        if not self.opcodeInt[paramVal]:
+            newPointer = self.i + 2 if self.mode2 else self.opcodeInt[self.i + 2]
+            self.i = self.opcodeInt[newPointer]
+        else:
+            self.i += 3
+
+    def opcodeSeven(self):
+        pos1 = self.i + 1 if self.mode1 else self.opcodeInt[self.i + 1]
+        pos2 = self.i + 2 if self.mode2 else self.opcodeInt[self.i + 2]
+        pos3 = self.i + 3 if self.mode3 else self.opcodeInt[self.i + 3]
+        if self.opcodeInt[pos1] < self.opcodeInt[pos2]:
+            self.opcodeInt[pos3] = 1
+        else:
+            self.opcodeInt[pos3] = 0
+        self.i += 4
+
+    def opcodeEight(self):
+        pos1 = self.i + 1 if self.mode1 else self.opcodeInt[self.i + 1]
+        pos2 = self.i + 2 if self.mode2 else self.opcodeInt[self.i + 2]
+        pos3 = self.i + 3 if self.mode3 else self.opcodeInt[self.i + 3]
+        if self.opcodeInt[pos1] == self.opcodeInt[pos2]:
+            self.opcodeInt[pos3] = 1
+        else:
+            self.opcodeInt[pos3] = 0
+        self.i += 4
+
+    # opcodeNinetynine.
+    def hcf(self):
+        print(f'Program End.')
+   
+    def processOpcodes(self):
+        
+        while True:
+            turn = str(self.opcodeInt[self.i]).zfill(5)
+            instruction = turn[-2:]
+            self.mode1 = int(turn[2])
+            self.mode2 = int(turn[1])
+            self.mode3 = int(turn[0])
+
+            if instruction == '99':
+                self.hcf()
+                break
+            elif instruction == '01':
+                self.opcodeOne()
+            elif instruction == '02':
+                self.opcodeTwo()
+            elif instruction == '03':
+                self.opcodeThree()
+            elif instruction == '04':
+                self.opcodeFour()
+            elif instruction == '05':
+                self.opcodeFive()
+            elif instruction == '06':
+                self.opcodeSix()
+            elif instruction == '07':
+                self.opcodeSeven()
+            elif instruction == '08':
+                self.opcodeEight()
+
+
+if __name__ == '__main__':
+        opcodes = [int(i) for i in open('Advent of Code Inputs/2019day5.txt').read().split(',')]
+        x = IntComputer(opcodes)
+        x.processOpcodes()
