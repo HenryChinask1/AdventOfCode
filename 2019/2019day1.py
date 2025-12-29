@@ -1,4 +1,5 @@
 # Fuel Counter-Upper
+
 def fuelCounterUpper(p):
     ans = 0
     fuels = []

@@ -1,20 +1,12 @@
-class Solution:
-    def clearStars(self, s: str) -> str:
-        cnt = [[] for _ in range(26)]
-        arr = list(s)
-        for i, c in enumerate(arr):
-            #print(cnt)
-            if c != '*':
-                cnt[ord(c) - ord('a')].append(i)
-            else:
-                #print(arr)
-                for j in range(26):
-                    #print(arr,'\n',cnt)
-                    if cnt[j]:
-                        print(cnt[j])
-                        arr[cnt[j].pop()] = '*'
-                        break
-        return ''.join(c for c in arr if c != '*')
+a = 6
+b = 5
 
-s = Solution()
-s.clearStars('aa*ba*')
+myTuple = (a, b, [])
+print(myTuple)
+myTuple[2].append('seven')
+print(myTuple)
+print(a)
+a = 9
+
+print(myTuple)
+print(a)
