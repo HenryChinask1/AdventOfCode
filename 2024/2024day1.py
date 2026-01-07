@@ -1,5 +1,5 @@
 def partOne():
-    p = open('AdventOfCode/Advent of Code Inputs/2024day1.txt').read().split('\n')
+    p = open('Advent of Code Inputs/2024day1.txt').read().split('\n')
     leftList = []
     rightList = []
 
@@ -19,7 +19,7 @@ def partOne():
     print(f'2024 Day 1 Part 1: {sum(ans)}')
 
 def partTwo():
-    p = open('AdventOfCode/Advent of Code Inputs/2024day1.txt').read().split('\n')
+    p = open('Advent of Code Inputs/2024day1.txt').read().split('\n')
 
     leftList = []
     rightList = []

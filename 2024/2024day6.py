@@ -1,4 +1,4 @@
-p = open('AdventOfCode/Advent of Code Inputs/2024day6.txt').read().split('\n')
+p = open('Advent of Code Inputs/2024day6.txt').read().split('\n')
 puzzle = []
 
 for i in p:

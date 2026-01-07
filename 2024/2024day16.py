@@ -1,5 +1,5 @@
 import heapq
-p = open('AdventOfCode/Advent of Code Inputs/2024day16TEST2.txt').read().split('\n')
+p = open('Advent of Code Inputs/2024day16TEST2.txt').read().split('\n')
 puzzle = []
 
 for i in p:

@@ -1,4 +1,4 @@
-f = open('AdventOfCode/Advent of Code Inputs/2017day5.txt').read().split()
+f = open('Advent of Code Inputs/2017day5.txt').read().split()
 
 def partOne():
     jumps = [int(i) for i in f]

@@ -1,5 +1,5 @@
 import re
-p = open('AdventOfCode/Advent of Code Inputs/2024day3.txt').read()
+p = open('Advent of Code Inputs/2024day3.txt').read()
 
 def partOne():
     puzzle = re.findall(r'mul[(]\d+[,]\d+[)]', p) # all instructions.

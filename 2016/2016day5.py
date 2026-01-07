@@ -1,6 +1,6 @@
 import hashlib
 
-p = open('AdventOfCode/Advent of Code Inputs/2016day5TEST.txt').read()
+p = open('Advent of Code Inputs/2016day5TEST.txt').read()
 
 def partOne():
     ans = hashlib.md5(b'abc')

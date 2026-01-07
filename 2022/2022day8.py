@@ -1,4 +1,4 @@
-p = open('AdventOfCode/Advent of Code Inputs/2022day8TEST.txt').read().split('\n')
+p = open('Advent of Code Inputs/2022day8TEST.txt').read().split('\n')
 forest = []
 
 for i in p:

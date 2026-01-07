@@ -1,5 +1,5 @@
 def partOne():
-    p = open('AdventOfCode/Advent of Code Inputs/2024day2.txt').read().split('\n')
+    p = open('Advent of Code Inputs/2024day2.txt').read().split('\n')
 
     puzzle = []
     ans = 0
@@ -28,7 +28,7 @@ def partOne():
     print(f'2024 Day 2 Part 1: {ans}')
 
 def partTwo():
-    p = open('AdventOfCode/Advent of Code Inputs/2024day2.txt').read().split('\n')
+    p = open('Advent of Code Inputs/2024day2.txt').read().split('\n')
 
     puzzle = []
     ans = 0

@@ -1,6 +1,6 @@
 from copy import deepcopy
 
-p = open('AdventOfCode/Advent of Code Inputs/2024day5TEST.txt').read().split('\n')
+p = open('Advent of Code Inputs/2024day5TEST.txt').read().split('\n')
 pagePair = []
 convert = []
 books = []
@@ -79,9 +79,9 @@ def partTwo():
             # TODO: Recursively fixMids until it passes and add the middle page to ans.
     
     for book in incorrects:
-        print(f'The book: {book}')
+        #print(f'The book: {book}')
         ans += fixMids(book, befores, afters)
-        print(ans)
+        #print(ans)
     print(f'Part Two: {ans}')
 
 partOne()

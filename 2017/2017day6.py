@@ -1,4 +1,4 @@
-p = open('AdventOfCode/Advent of Code Inputs/2017day6.txt').read()
+p = open('Advent of Code Inputs/2017day6.txt').read()
 
 def partOne(steps, ans, puzzle):
     for _ in range(10000):

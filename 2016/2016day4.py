@@ -1,5 +1,5 @@
 from collections import Counter
-p = open('AdventOfCode/Advent of Code Inputs/2016day4.txt').read().split('\n')
+p = open('Advent of Code Inputs/2016day4.txt').read().split('\n')
 # A list of tuples ['room name', 'sectorID', 'checksum']
 puzzle = []
 

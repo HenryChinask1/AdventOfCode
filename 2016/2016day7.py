@@ -1,5 +1,5 @@
 import re
-p = open('AdventOfCode/Advent of Code Inputs/2016day7.txt').read().split('\n')
+p = open('Advent of Code Inputs/2016day7.txt').read().split('\n')
 # [[Check for abba, check for not abba, check for abba]]
 puzzle = []
 

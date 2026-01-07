@@ -1,4 +1,4 @@
-p = open('AdventOfCode/Advent of Code Inputs/2024day9TEST.txt').read()
+p = open('Advent of Code Inputs/2024day9TEST.txt').read()
 puzzle = [int(i) for i in p]
 
 def partOne():

@@ -1,6 +1,6 @@
 import string
 
-puzzle = open('AdventOfCode/Advent of Code Inputs/2020day6.txt').read().split('\n\n')
+puzzle = open('Advent of Code Inputs/2020day6.txt').read().split('\n\n')
 groups = []
 res = 0
 
