@@ -39,10 +39,12 @@ def checkVals(parts, op):
             part1 = np.uint16(int(parts[0]))
         else:
             part1 = parts[0]
+
         if parts[2].isdigit():
             part2 = np.uint16(int(parts[2]))
         else:
-            part2 = parts[1]
+            part2 = parts[2]
+
         if parts[4].isdigit():
             part3 = np.uint16(int(parts[4]))
         else:
@@ -53,7 +55,7 @@ def checkVals(parts, op):
 for i in range(len(puzzleInput)):
     if 'NOT' in puzzleInput[i]:
         parts = checkVals(puzzleInput[i], 'NOT')
-        ans[parts[0]] = ~ans[parts[1]]
+        ans[parts[2]] = ~ans[parts[1]]
     elif 'AND' in puzzleInput[i]:
         parts = checkVals(puzzleInput[i], 'AND')
         ans[parts[4]] = ans[parts[2]] & ans[parts[3]]
