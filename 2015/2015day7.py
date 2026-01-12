@@ -27,7 +27,7 @@ ans = defaultdict()
 
 def checkVals(parts, op):
     if op == 'NOT':
-        return ['NOT', parts[1], parts[2]] # Both are letters.
+        return ['NOT', parts[1], parts[3]] # Both are letters.
     
     elif op == 'ASSIGN':
         part1 = np.uint16(parts[0])
@@ -58,19 +58,20 @@ for i in range(len(puzzleInput)):
         ans[parts[2]] = ~ans[parts[1]]
     elif 'AND' in puzzleInput[i]:
         parts = checkVals(puzzleInput[i], 'AND')
-        ans[parts[4]] = ans[parts[2]] & ans[parts[3]]
+        ans[parts[3]] = ans[parts[1]] & ans[parts[2]]
     elif 'OR' in puzzleInput[i]:
         parts = checkVals(puzzleInput[i], 'OR')
-        ans[parts[4]] = ans[parts[2]] | ans[parts[3]]
+        ans[parts[3]] = ans[parts[1]] | ans[parts[2]]
     elif 'LSHIFT' in puzzleInput[i]:
         parts = checkVals(puzzleInput[i], 'LSHIFT')
-        ans[parts[4]] = ans[parts[2]] << ans[parts[3]]
+        ans[parts[3]] = ans[parts[1]] << ans[parts[2]]
     elif 'RSHIFT' in puzzleInput[i]:
         parts = checkVals(puzzleInput[i], 'RSHIFT')
-        ans[parts[4]] = ans[parts[2]] >> ans[parts[3]]
+        ans[parts[3]] = ans[parts[1]] >> ans[parts[2]]
     else:
         parts = checkVals(puzzleInput[i], 'ASSIGN')
         ans[parts[1]] = parts[0]
+    print(ans)
 
 print(ans)
 print(f'Part One: {ans['a']}')
