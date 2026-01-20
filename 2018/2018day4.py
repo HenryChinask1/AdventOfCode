@@ -5,7 +5,7 @@ from collections import defaultdict, Counter
 def partOne():
     guardstats = []
 
-    with open('Advent of Code Inputs/2018day4TEST.txt') as f:
+    with open('Advent of Code Inputs/2018day4.txt') as f:
         file = f.read().split('\n')
         for i in file:
             x = i.split(']')
@@ -44,7 +44,7 @@ def partTwo():
 
     guardstats = []
 
-    with open('Advent of Code Inputs/2018day4TEST.txt') as f:
+    with open('Advent of Code Inputs/2018day4.txt') as f:
         file = f.read().split('\n')
         for i in file:
             x = i.split(']')
@@ -74,10 +74,17 @@ def partTwo():
             while curr < guardstats[i][0].minute:
                 sleptMins[guard].append(curr)
                 curr += 1
-   
-    guard = max(sleepTimes, key=sleepTimes.get)
-    mostMins = Counter(sleptMins[guard])
-    print(f'Part One ans: {int(guard[1:]) * max(mostMins, key=mostMins.get)}')
+    
+    maxGuard = None
+    maxCount = 0
+    for guard in sleptMins:
+        count = Counter(sleptMins[guard])
+        highest = max(count, key=count.get)
+        if max(count) > maxCount:
+            maxGuard = guard
+            maxCount = highest
+        print(maxGuard, maxCount, count)
+    print(f'Part One ans: {int(maxGuard[1:]) * maxCount}')
 
 partOne()
 partTwo()
