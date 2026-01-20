@@ -77,13 +77,16 @@ def partTwo():
     
     maxGuard = None
     maxCount = 0
+    maxCheck = 0
     for guard in sleptMins:
         count = Counter(sleptMins[guard])
         highest = max(count, key=count.get)
-        if max(count) > maxCount:
+        check = max(count)
+        print(guard, count, highest, check)
+        if check > maxCheck:
             maxGuard = guard
             maxCount = highest
-        print(maxGuard, maxCount, count)
+            maxCheck = check
     print(f'Part One ans: {int(maxGuard[1:]) * maxCount}')
 
 partOne()
